@@ -13,10 +13,10 @@ public class ModuleData extends SimpleBarChart {
   private static Map<String, Integer> getMap() {
     Map<String, Integer> sortedMap = new LinkedHashMap<>();
 
-    BungeecordModuleManager.getLocalModules().stream()
-        .forEach(module -> sortedMap.put(module.getName(), module.isEnabled() ? 1 : 0));
-
     sortedMap.put("Servers", 1);
+
+    BungeecordModuleManager.getLocalModules()
+        .forEach(module -> sortedMap.put(module.getName(), module.isEnabled() ? 1 : 0));
 
     return sortedMap;
   }
